@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll"
+import myLogo from "../assets/batelaan-logo-2.png"
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -29,15 +30,18 @@ const NavBar = () => {
 
   return (
     //can remove fixed if I want navigation bar to scroll with the page
-    <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-black fixed z-10">
-      <div>
-        <h1 className="text-5xl font-signature ml-2">Stephen Batelaan</h1>
-      </div>
+    <div className="flex justify-center items-center w-full h-20 px-4 bg-black fixed z-10">
+      <div className="flex w-full justify-start items-center">
+        {/* <h1 className="text-5xl font-signature ml-2">Stephen Batelaan</h1> */}
+        <Link to="home" smooth duration={500}>
+        <img src={myLogo} alt="Stephen Batelaan" className="cursor-pointer flex justify-start w-fill h-20"/>
+        </Link>
+        </div>
       <ul className="hidden md:flex">
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200"
+            className="px-4 cursor-pointer capitalize font-medium text-[#E9E2D4] hover:scale-105 duration-200"
           >
             <Link to={link} smooth duration={500}>{link}</Link>
           </li>
